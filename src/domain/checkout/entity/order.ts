@@ -24,6 +24,19 @@ export default class Order {
   get items(): OrderItem[] {
     return this._items;
   }
+  
+  changeCustomer(newid:string ): void {
+    this._customerId = newid;
+    this.validate();
+
+  }
+
+  changeItems(items:OrderItem[]): void{
+    this._items = items;
+    this._total = this.total();
+    this.validate();
+    console.log(this.total())
+  }
 
   validate(): boolean {
     if (this._id.length === 0) {
