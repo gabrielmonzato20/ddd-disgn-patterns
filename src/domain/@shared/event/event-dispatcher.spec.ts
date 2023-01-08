@@ -1,3 +1,6 @@
+import SendLogWhenCostumerAdressIsChangedHandler from "../../customer/event/handler/send-log-when-customer-adress-is-changed.handle";
+import SendLogWhenCostumerIsCreatedHandler from "../../customer/event/handler/send-log-when-customer-is-create.handle";
+import SendLogWhenCostumerIsCreatedHandler2 from "../../customer/event/handler/send-log-when-customer-is-create2.handle";
 import SendEmailWhenProductIsCreatedHandler from "../../product/event/handler/send-email-when-product-is-created.handler";
 import ProductCreatedEvent from "../../product/event/product-created.event";
 import EventDispatcher from "./event-dispatcher";
@@ -19,6 +22,8 @@ describe("Domain events tests", () => {
       eventDispatcher.getEventHandlers["ProductCreatedEvent"][0]
     ).toMatchObject(eventHandler);
   });
+
+ 
 
   it("should unregister an event handler", () => {
     const eventDispatcher = new EventDispatcher();
